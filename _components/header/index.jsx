@@ -118,7 +118,7 @@ const Header = ({ navItems, isSearch }) => {
               </div>
               <nav className="flex flex-col space-y-6">
                 <a
-                  href="/sign-in"
+                  href="#"
                   className="text-gray-800 hover:text-blue-500 transition-colors duration-300 text-lg font-medium"
                 >
                   Home
@@ -129,7 +129,10 @@ const Header = ({ navItems, isSearch }) => {
                 >
                   Category
                 </a>
-                <button className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition-colors duration-300 text-lg font-medium">
+                <button
+                  href="/sign-in"
+                  className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition-colors duration-300 text-lg font-medium"
+                >
                   Login
                 </button>
               </nav>

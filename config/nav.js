@@ -10,7 +10,7 @@ export const mainNav = [
   },
   {
     title: "cart",
-    href: "/cart",
+    href: "/orders",
     icon: <LuShoppingCart size={28} />,
   },
   {
