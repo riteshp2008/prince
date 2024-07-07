@@ -118,7 +118,7 @@ const Header = ({ navItems, isSearch }) => {
               </div>
               <nav className="flex flex-col space-y-6">
                 <a
-                  href="/"
+                  href="/sign-in"
                   className="text-gray-800 hover:text-blue-500 transition-colors duration-300 text-lg font-medium"
                 >
                   Home
