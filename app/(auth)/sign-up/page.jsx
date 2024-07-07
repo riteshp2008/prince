@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import Header from "@/_components/header";
 import { mainNav } from "@/config/nav";
+import Image from "next/image";
 
 export default function SignupFormDemo() {
   const handleSubmit = (e) => {
@@ -17,7 +18,7 @@ export default function SignupFormDemo() {
     <>
       <Header navItems={mainNav} isSearch={false} />
       <div className="max-w-md w-full m-auto mt-20 rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white">
-        <img
+        <Image
           src="Bajaj-Logo.png"
           alt="logo"
           className="w-20 mx-auto pb-2 justify-center"

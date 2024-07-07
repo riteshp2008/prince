@@ -45,7 +45,7 @@ const deals = [
 
 const DealOfTheDay = () => {
   return (
-    <section className="py-12 px-6 bg-gray-100" data-aos="fade-up">
+    <section className="py-12 px-6 bg-white" data-aos="fade-up">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-900">Deal of The Day</h2>
