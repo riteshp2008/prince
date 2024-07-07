@@ -12,6 +12,8 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 import { products } from "@/config/dummyData";
+import { mainNav } from "@/config/nav";
+import Header from "@/_components/header";
 
 const Page = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -159,62 +161,65 @@ const Page = () => {
   const collection = searchParams.get("collection");
 
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        {renderBreadcrumbs()}
-        <div className="flex flex-col sm:flex-row items-baseline bg-cover bg-[url('https://img.freepik.com/free-vector/gradient-dynamic-blue-lines-background_23-2148995756.jpg?size=626&ext=jpg')] rounded-md justify-between border-b border-gray-200 pb-6">
-          <h1 className="text-3xl sm:text-4xl p-2 font-bold tracking-tight text-gray-900 mb-4 sm:mb-0">
-            {collection ? collection : "All Products"}
-          </h1>
-        </div>
+    <>
+      <Header navItems={mainNav} isSearch={true} />
+      <div className="bg-gray-50 min-h-screen">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          {renderBreadcrumbs()}
+          <div className="flex flex-col sm:flex-row items-baseline bg-cover bg-[url('https://img.freepik.com/free-vector/gradient-dynamic-blue-lines-background_23-2148995756.jpg?size=626&ext=jpg')] rounded-md justify-between border-b border-gray-200 pb-6">
+            <h1 className="text-3xl sm:text-4xl p-2 font-bold tracking-tight text-gray-900 mb-4 sm:mb-0">
+              {collection ? collection : "All Products"}
+            </h1>
+          </div>
 
-        <div className="mt-2">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 bg-white p-2 rounded-lg shadow-md"
-          >
-            <div className="relative inline-block text-left w-full sm:w-auto">
-              <div className="flex items-center space-x-2">
-                <FaSort className="text-gray-400" />
-                <select
-                  className="block w-full pr-6 py-1 text-base bg-white border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                  value={sortBy}
-                  onChange={handleSortChange}
-                >
-                  <option value="name">Sort by Name</option>
-                  <option value="price">Sort by Price</option>
-                  <option value="category">Sort by Category</option>
-                </select>
+          <div className="mt-2">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 bg-white p-2 rounded-lg shadow-md"
+            >
+              <div className="relative inline-block text-left w-full sm:w-auto">
+                <div className="flex items-center space-x-2">
+                  <FaSort className="text-gray-400" />
+                  <select
+                    className="block w-full pr-6 py-1 text-base bg-white border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    value={sortBy}
+                    onChange={handleSortChange}
+                  >
+                    <option value="name">Sort by Name</option>
+                    <option value="price">Sort by Price</option>
+                    <option value="category">Sort by Category</option>
+                  </select>
+                </div>
               </div>
-            </div>
 
-            <div className="relative inline-block text-left w-full sm:w-auto">
-              <div className="flex items-center space-x-2">
-                <FaFilter className="text-gray-400" />
-                <select
-                  id="category"
-                  name="category"
-                  className="block w-full pl-3 pr-10 py-2 text-base bg-white border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                  value={filter}
-                  onChange={handleFilterChange}
-                >
-                  <option value="">All Categories</option>
-                  <option value="Accessories">Accessories</option>
-                  <option value="Stationery">Stationery</option>
-                </select>
+              <div className="relative inline-block text-left w-full sm:w-auto">
+                <div className="flex items-center space-x-2">
+                  <FaFilter className="text-gray-400" />
+                  <select
+                    id="category"
+                    name="category"
+                    className="block w-full pl-3 pr-10 py-2 text-base bg-white border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    value={filter}
+                    onChange={handleFilterChange}
+                  >
+                    <option value="">All Categories</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Stationery">Stationery</option>
+                  </select>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        </div>
-        <div className="mt-8 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {renderProductCards()}
-        </div>
+            </motion.div>
+          </div>
+          <div className="mt-8 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+            {renderProductCards()}
+          </div>
 
-        {renderPagination()}
+          {renderPagination()}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
