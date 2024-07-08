@@ -5,6 +5,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const Header = ({ navItems, isSearch }) => {
   const [isOpen, setIsOpen] = useState(false);

@@ -18,9 +18,10 @@ export default function SignupFormDemo() {
     <>
       <Header navItems={mainNav} isSearch={false} />
       <div className="max-w-md w-full m-auto mt-20 rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white">
-        <Image
+        <img
           src="Bajaj-Logo.png"
           alt="logo"
+          fill={true}
           className="w-20 mx-auto pb-2 justify-center"
         />
         <h2 className="font-bold text-xl text-center text-neutral-800 ">

@@ -17,7 +17,7 @@ export default function SigninFormDemo() {
     <>
       <Header navItems={mainNav} isSearch={false} />
       <div className="max-w-md w-full m-auto mt-20 rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white">
-        <Image
+        <img
           src="Bajaj-Logo.png"
           alt="logo"
           className="w-20 mx-auto pb-2 justify-center"
