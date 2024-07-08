@@ -11,7 +11,7 @@ const dummyData = [
     text: "Products from Just ₹99",
     highlight: "Just ₹99",
     image:
-      "https://img.freepik.com/free-psd/collection-items-girl-gender-reveal_23-2150983237.jpg?size=626&ext=jpg&ga=GA1.1.761205328.1720123392&semt=ais_hybrid",
+      "https://hamart-shop.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fslider-1.b3c73448.png&w=640&q=75",
     link: "/products/1",
   },
   {
@@ -19,7 +19,7 @@ const dummyData = [
     text: "Exclusive Collection at Amazing Prices",
     highlight: "Amazing Prices",
     image:
-      "https://img.freepik.com/free-photo/spring-wardrobe-switch-flat-lay_23-2150264148.jpg?size=626&ext=jpg&ga=GA1.1.761205328.1720123392&semt=ais_hybrid",
+      "https://uomo-nextjs-ecommerce.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fhome%2Fdemo4%2Fslider2.png&w=640&q=75",
     link: "/products/2",
   },
   {
@@ -27,7 +27,7 @@ const dummyData = [
     text: "Discover Our New Arrivals",
     highlight: "New Arrivals",
     image:
-      "https://img.freepik.com/free-psd/view-hawaiian-shirt-with-pattern_23-2150819247.jpg?size=626&ext=jpg&ga=GA1.1.761205328.1720123392&semt=ais_hybrid",
+      "https://uomo-nextjs-ecommerce.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fhome%2Fdemo4%2Fslider1.png&w=640&q=75",
     link: "/products/3",
   },
 ];
@@ -97,7 +97,7 @@ const Banner = () => {
                       transition={{ delay: 0.5, duration: 0.8 }}
                       src={slide.image}
                       alt="Banner Image"
-                      className="hidden md:block absolute right-0 top-3 h-full object-cover"
+                      className="hidden md:block absolute right-20 top-6 h-full object-cover"
                     />
                   </div>
                 </motion.div>
