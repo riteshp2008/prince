@@ -52,10 +52,16 @@ const Banner = () => {
             background: [
               "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)",
               "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)",
-              "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)",
+              "linear-gradient(45deg, #f6d365 0%, #fda085 100%)",
+              "linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)",
             ],
           }}
-          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+          transition={{
+            duration: 30,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
         />
       </div>
       <div className="relative w-full h-[70vh] flex items-center">
