@@ -65,6 +65,9 @@ const Page = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const searchParams = useSearchParams();
+  const collection = searchParams.get("collection");
+
   const renderProductCards = () => {
     return currentProducts.map((product) => (
       <motion.div
@@ -147,9 +150,6 @@ const Page = () => {
       </ol>
     </nav>
   );
-
-  const searchParams = useSearchParams();
-  const collection = searchParams.get("collection");
 
   return (
     <>
