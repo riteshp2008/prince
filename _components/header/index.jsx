@@ -129,8 +129,14 @@ const Header = ({ navItems, isSearch }) => {
                 >
                   Category
                 </a>
+                <a
+                  href="/account"
+                  className="text-gray-800 hover:text-blue-500 transition-colors duration-300 text-lg font-medium"
+                >
+                  Account
+                </a>
                 <button
-                  href="/sign-in"
+                  onClick={() => (window.location.href = "/sign-in")}
                   className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition-colors duration-300 text-lg font-medium"
                 >
                   Login

@@ -1,22 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import {
-  FaHeart,
-  FaStar,
-  FaShoppingCart,
-  FaSort,
-  FaFilter,
-  FaChevronLeft,
-  FaChevronRight,
-} from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
+import { FaSort, FaFilter, FaChevronRight } from "react-icons/fa";
+import { motion } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 import { products } from "@/config/dummyData";
 import { mainNav } from "@/config/nav";
 import Header from "@/_components/header";
 
 const Page = () => {
-  const [selectedProduct, setSelectedProduct] = useState(null);
   const [filter, setFilter] = useState("");
   const [sortBy, setSortBy] = useState("name");
   const [currentPage, setCurrentPage] = useState(1);

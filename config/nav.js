@@ -10,12 +10,12 @@ export const mainNav = [
   },
   {
     title: "cart",
-    href: "/orders",
+    href: "/cart",
     icon: <LuShoppingCart size={28} />,
   },
   {
     title: "sign in",
-    href: "/sign-in",
+    href: "/account",
     icon: <MdAccountCircle size={28} className="hidden md:block" />,
   },
 ];

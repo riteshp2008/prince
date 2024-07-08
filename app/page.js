@@ -13,10 +13,10 @@ export default function Home() {
       <Header navItems={mainNav} isSearch={true} />
       <Banner />
       <Category />
-      <Brands />
+      <DealOfTheDay />
       <Occasion />
       <Product />
-      <DealOfTheDay />
+      <Brands />
     </div>
   );
 }

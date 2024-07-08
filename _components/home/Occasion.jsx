@@ -52,6 +52,11 @@ const Occasion = () => {
           </CardContainer>
         ))}
       </div>
+      <div className="text-center">
+        <button className="text-sm border border-gray-900 py-1 px-5 text-gray-500 hover:text-gray-700 hover:bg-gray-800 hover:text-white rounded ">
+          View All
+        </button>
+      </div>
     </div>
   );
 };

@@ -43,7 +43,7 @@ export const products = [
   },
   {
     id: 4,
-    name: "Machined Mechanical Pencil",
+    name: "Machined Pencil",
     href: "#",
     price: "₹450",
     category: "Stationery",
@@ -58,6 +58,46 @@ export const products = [
 ];
 
 export const occasion = [
+  {
+    text: "BIRTHDAY",
+    imageSrc:
+      "https://plus.unsplash.com/premium_photo-1663839412026-51a44cfadfb8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YmlydGhkYXl8ZW58MHx8MHx8fDA%3D",
+    link: "/products?collection=Occasions&occasion=birthday",
+  },
+  {
+    text: "ANNIVERSARY / WEDDING",
+    imageSrc:
+      "https://images.unsplash.com/photo-1512163143273-bde0e3cc7407?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZW5nYWdlbWVudCUyMHJpbmd8ZW58MHx8MHx8fDA%3D",
+    link: "/products?collection=Occasions&occasion=anniversary-wedding",
+  },
+  {
+    text: "HOUSEWARMING",
+    imageSrc:
+      "https://images.unsplash.com/photo-1619727875848-64f3b23a4de4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aG91c2UlMjBnaWZ0fGVufDB8fDB8fHww",
+    link: "/products?collection=Occasions&occasion=housewarming",
+  },
+];
+export const KidsSpecial = [
+  {
+    text: "BIRTHDAY",
+    imageSrc:
+      "https://plus.unsplash.com/premium_photo-1663839412026-51a44cfadfb8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YmlydGhkYXl8ZW58MHx8MHx8fDA%3D",
+    link: "/products?collection=Occasions&occasion=birthday",
+  },
+  {
+    text: "ANNIVERSARY / WEDDING",
+    imageSrc:
+      "https://images.unsplash.com/photo-1512163143273-bde0e3cc7407?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZW5nYWdlbWVudCUyMHJpbmd8ZW58MHx8MHx8fDA%3D",
+    link: "/products?collection=Occasions&occasion=anniversary-wedding",
+  },
+  {
+    text: "HOUSEWARMING",
+    imageSrc:
+      "https://images.unsplash.com/photo-1619727875848-64f3b23a4de4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aG91c2UlMjBnaWZ0fGVufDB8fDB8fHww",
+    link: "/products?collection=Occasions&occasion=housewarming",
+  },
+];
+export const trendingNow = [
   {
     text: "BIRTHDAY",
     imageSrc:
