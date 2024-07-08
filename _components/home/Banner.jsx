@@ -44,7 +44,20 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="relative w-full mt-14 overflow-hidden bg-gray-200">
+    <div className="relative w-full mt-14 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <motion.div
+          className="w-full h-full"
+          animate={{
+            background: [
+              "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)",
+              "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)",
+              "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)",
+            ],
+          }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+        />
+      </div>
       <div className="relative w-full h-[70vh] flex items-center">
         <AnimatePresence>
           {dummyData.map(
@@ -97,7 +110,7 @@ const Banner = () => {
                       transition={{ delay: 0.5, duration: 0.8 }}
                       src={slide.image}
                       alt="Banner Image"
-                      className="hidden md:block absolute right-20 top-6 h-full object-cover"
+                      className="hidden md:block absolute right-24 top-6 h-full object-cover"
                     />
                   </div>
                 </motion.div>
