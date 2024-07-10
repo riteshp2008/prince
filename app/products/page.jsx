@@ -165,7 +165,7 @@ const Page = () => {
   return (
     <>
       <Header navItems={mainNav} isSearch={true} />
-      <div className="bg-gray-50 mt-12 md:mt-20s min-h-screen">
+      <div className="bg-gray-50 mt-12 md:mt-20 min-h-screen">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
           <Suspense fallback={<div>Loading...</div>}>
             <SearchParamsWrapper>
