@@ -282,11 +282,16 @@ const WishlistSection = () => {
     {
       id: 1,
       name: "Wireless Headphones",
-      price: "$129.99",
+      price: "1129.99",
       image: "/headphones.jpg",
     },
-    { id: 2, name: "Smartwatch", price: "$199.99", image: "/smartwatch.jpg" },
-    { id: 3, name: "Laptop Backpack", price: "$59.99", image: "/backpack.jpg" },
+    { id: 2, name: "Smartwatch", price: "1999.99", image: "/smartwatch.jpg" },
+    {
+      id: 3,
+      name: "Laptop Backpack",
+      price: "1559.99",
+      image: "/backpack.jpg",
+    },
   ];
 
   return (
@@ -307,8 +312,8 @@ const WishlistSection = () => {
             />
             <div className="p-4">
               <h3 className="text-lg font-semibold">{item.name}</h3>
-              <p className="text-gray-600 font-medium mt-1">{item.price}</p>
-              <button className="mt-2 w-full bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors duration-200 flex items-center justify-center">
+              <p className="text-gray-600 font-medium mt-1">₹{item.price}</p>
+              <button className="mt-2 w-full bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200 flex items-center justify-center">
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 Add to Cart
               </button>
@@ -325,22 +330,22 @@ const AddressesSection = () => {
     {
       id: 1,
       type: "Shipping",
-      name: "John Doe",
-      street: "123 Main St",
-      city: "Anytown",
-      state: "ST",
-      zip: "12345",
-      country: "United States",
+      name: "Abc",
+      street: "Warje Malwadi",
+      city: "Pune",
+      state: "MH",
+      zip: "411058",
+      country: "India",
     },
     {
       id: 2,
       type: "Billing",
-      name: "John Doe",
-      street: "456 Oak Ave",
-      city: "Other City",
-      state: "OT",
-      zip: "67890",
-      country: "United States",
+      name: "Xyz",
+      street: "Kothrud",
+      city: "Pune",
+      state: "MH",
+      zip: "411038",
+      country: "India",
     },
   ]);
   const [isAddingAddress, setIsAddingAddress] = useState(false);
@@ -573,7 +578,7 @@ const PaymentSection = () => {
         <PaymentCard type="Visa" last4="4242" />
         <PaymentCard type="Mastercard" last4="5555" />
       </div>
-      <button className="mt-4 bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-200 shadow-md flex items-center">
+      <button className="mt-4 bg-blue-700 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-200 shadow-md flex items-center">
         <CreditCard className="mr-2 h-4 w-4" />
         Add New Payment Method
       </button>
