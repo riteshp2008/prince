@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 import { mainNav } from "@/config/nav";
 import Header from "@/_components/header";
+import { FaHome, FaShoppingCart, FaUser } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
 
 const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState("account");
@@ -32,7 +34,7 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Header navItems={mainNav} isSearch={false} />
+      <Header isSearch={false} navItems={mainNav} />
       <div className="min-h-screen mt-12  bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -41,7 +43,7 @@ const ProfilePage = () => {
               <div className="md:hidden p-4">
                 <button
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="text-gray-500 hover:text-gray-600"
+                  className="text-gray-500 hover:text-blue-600"
                 >
                   <Menu className="h-6 w-6" />
                 </button>
@@ -49,7 +51,7 @@ const ProfilePage = () => {
 
               {/* Sidebar */}
               <aside
-                className={`w-full md:w-64 bg-gray-800 text-white p-6 ${
+                className={`w-full md:w-64 bg-blue-600 text-white p-6 ${
                   isSidebarOpen ? "block" : "hidden"
                 } md:block`}
               >
@@ -60,14 +62,14 @@ const ProfilePage = () => {
                       alt="Profile Picture"
                       width={80}
                       height={50}
-                      className="rounded-full mx-auto mb-4 border-4 border-gray-700 shadow-lg"
+                      className="rounded-full mx-auto mb-4 border-4 border-white shadow-lg"
                     />
-                    <button className="absolute bottom-0 right-0 bg-gray-700 text-white rounded-full p-1 shadow-md">
+                    <button className="absolute bottom-0 right-0 bg-blue-700 text-white rounded-full p-1 shadow-md">
                       <Camera className="h-4 w-4" />
                     </button>
                   </div>
                   <h2 className="text-xl font-semibold">Prince</h2>
-                  <p className="text-sm text-gray-400">prince@ecom.com</p>
+                  <p className="text-sm text-blue-400">prince@ecom.com</p>
                 </div>
                 <nav className="space-y-2">
                   {tabs.map((tab) => (
@@ -75,8 +77,8 @@ const ProfilePage = () => {
                       key={tab.id}
                       className={`flex items-center w-full py-3 px-4 rounded-lg transition-all duration-200 ${
                         activeTab === tab.id
-                          ? "bg-gray-700 text-white"
-                          : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                          ? "bg-blue-700 text-white"
+                          : "text-blue-300 hover:bg-blue-700 hover:text-white"
                       }`}
                       onClick={() => {
                         setActiveTab(tab.id);
@@ -136,7 +138,7 @@ const AccountSection = () => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-semibold text-gray-800">
+      <h2 className="text-2xl font-semibold text-blue-800">
         Account Information
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white">
@@ -157,14 +159,14 @@ const AccountSection = () => {
       <div className="mt-8 space-y-4">
         {isEditing ? (
           <button
-            className="bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-200 shadow-md flex items-center"
+            className="bg-blue-800 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md flex items-center"
             onClick={handleSave}
           >
             Save Changes
           </button>
         ) : (
           <button
-            className="bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-200 shadow-md flex items-center"
+            className="bg-blue-800 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md flex items-center"
             onClick={() => setIsEditing(true)}
           >
             <Edit className="mr-2 h-4 w-4" />
@@ -172,7 +174,7 @@ const AccountSection = () => {
           </button>
         )}
         <button
-          className="bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-200 shadow-md flex items-center"
+          className="bg-blue-800 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md flex items-center"
           onClick={() => setIsChangingPassword(true)}
         >
           <Lock className="mr-2 h-4 w-4" />
@@ -198,12 +200,12 @@ const AccountSection = () => {
             />
             <div className="flex justify-end space-x-2">
               <button
-                className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition-colors duration-200"
+                className="px-4 py-2 bg-blue-200 rounded-md hover:bg-blue-300 transition-colors duration-200"
                 onClick={() => setIsChangingPassword(false)}
               >
                 Cancel
               </button>
-              <button className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-colors duration-200">
+              <button className="px-4 py-2 bg-blue-800 text-white rounded-md hover:bg-blue-700 transition-colors duration-200">
                 Save Changes
               </button>
             </div>
@@ -228,7 +230,7 @@ const OrdersSection = () => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-semibold text-gray-800">Recent Orders</h2>
+      <h2 className="text-2xl font-semibold text-blue-800">Recent Orders</h2>
       <div className="overflow-x-auto bg-white rounded-lg shadow">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
@@ -364,7 +366,7 @@ const AddressesSection = () => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-semibold text-gray-800">My Addresses</h2>
+      <h2 className="text-2xl font-semibold text-blue-600">My Addresses</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {addresses.map((address) => (
           <AddressCard
@@ -389,7 +391,7 @@ const AddressesSection = () => {
         />
       ) : (
         <button
-          className="mt-4 bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors duration-200 shadow-md flex items-center"
+          className="mt-4 bg-blue-800 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md flex items-center"
           onClick={() => setIsAddingAddress(true)}
         >
           <Home className="mr-2 h-4 w-4" />

@@ -44,7 +44,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="relative w-full mt-14 overflow-hidden">
+    <div className="relative w-full mt-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <motion.div
           className="w-full h-full"
@@ -57,7 +57,7 @@ const Banner = () => {
             ],
           }}
           transition={{
-            duration: 30,
+            duration: 10,
             ease: "linear",
             repeat: Infinity,
             repeatType: "loop",

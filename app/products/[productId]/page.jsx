@@ -3,13 +3,18 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { mainNav } from "@/config/nav";
 import Header from "@/_components/header";
+import { products } from "@/config/dummyData";
+import { useParams } from "next/navigation";
 
 const Page = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState("Black");
   const [selectedStorage, setSelectedStorage] = useState("128GB");
 
-  const colors = ["Black", "White", "Blue", "Red"];
+  const { productId } = useParams();
+  const product = products.find((p) => p.id === parseInt(productId));
+
+  const colors = ["Black", "Blue", "Red"];
   const storageOptions = ["64GB", "128GB", "256GB"];
 
   const handleQuantityChange = (change) => {
@@ -19,7 +24,7 @@ const Page = () => {
   return (
     <>
       <Header navItems={mainNav} isSearch={true} />
-      <div className="bg-gray-50 mt-12 min-h-screen py-8">
+      <div className="bg-gray-50 mt-16 min-h-screen py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div
@@ -29,8 +34,8 @@ const Page = () => {
               className="img-container"
             >
               <img
-                src="https://images.unsplash.com/photo-1537589376225-5405c60a5bd8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGlwaG9uZXxlbnwwfHwwfHx8MA%3D%3D"
-                alt="Mobile Phone image"
+                src={product.imageSrc}
+                alt={product.imageAlt}
                 className="w-full h-auto rounded-lg shadow-lg"
               />
             </motion.div>
@@ -43,12 +48,14 @@ const Page = () => {
             >
               <div>
                 <h1 className="text-3xl font-bold text-gray-900 mt-2">
-                  Iphone XS
+                  {product.name}
                 </h1>
               </div>
 
               <div className="flex items-center space-x-4">
-                <h2 className="text-3xl font-bold text-gray-900">₹99999</h2>
+                <h2 className="text-3xl font-bold text-gray-900">
+                  {product.price}
+                </h2>
                 <div className="flex items-center">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <svg
@@ -61,16 +68,12 @@ const Page = () => {
                     </svg>
                   ))}
                   <span className="ml-2 text-sm text-gray-600">
-                    (1245 reviews)
+                    (245 reviews)
                   </span>
                 </div>
               </div>
 
-              <p className="text-gray-600">
-                Explore the features and capabilities of our latest example
-                mobile phone model. Stay connected with advanced technology and
-                sleek design that fits your lifestyle.
-              </p>
+              <p className="text-gray-600">{product.description}</p>
 
               <div className="space-y-4">
                 <div>
@@ -91,7 +94,7 @@ const Page = () => {
                   </div>
                 </div>
 
-                <div>
+                {/* <div>
                   <h3 className="text-lg font-medium text-gray-900">Storage</h3>
                   <div className="mt-2 flex space-x-2">
                     {storageOptions.map((storage) => (
@@ -108,7 +111,7 @@ const Page = () => {
                       </button>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className="flex items-center space-x-4">
@@ -124,7 +127,7 @@ const Page = () => {
                     min="1"
                     value={quantity}
                     onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
-                    className="w-16 text-center border-none focus:outline-none"
+                    className="w-16 text-center bg-white border-none focus:outline-none"
                   />
                   <button
                     onClick={() => handleQuantityChange(1)}
@@ -141,12 +144,7 @@ const Page = () => {
               <div className="border-t pt-6">
                 <h3 className="text-lg font-medium text-gray-900">Features</h3>
                 <ul className="mt-4 space-y-2">
-                  {[
-                    "5G Connectivity",
-                    "Quad Camera Setup",
-                    "High-resolution Display",
-                    "Multiple Color Options",
-                  ].map((feature, index) => (
+                  {["Multiple Color Options"].map((feature, index) => (
                     <li key={index} className="flex items-center space-x-2">
                       <svg
                         className="w-5 h-5 text-green-500"
@@ -161,7 +159,7 @@ const Page = () => {
                           d="M5 13l4 4L19 7"
                         ></path>
                       </svg>
-                      <span>{feature}</span>
+                      <span>{product.features}</span>
                     </li>
                   ))}
                 </ul>

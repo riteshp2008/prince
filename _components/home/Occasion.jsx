@@ -22,7 +22,7 @@ const Occasion = () => {
             key={index}
             className="w-[16rem] md:w-[20rem] lg:w-[24rem] flex-shrink-0"
           >
-            <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-gray-200 dark:border-white/[0.2] border-black/[0.1] h-min rounded-xl p-6 border transition-all duration-300 ease-in-out transform hover:scale-105">
+            <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-blue-200 dark:border-white/[0.2] border-black/[0.1] h-min rounded-xl p-6 border transition-all duration-300 ease-in-out transform hover:scale-105">
               <CardItem translateZ="100" className="w-full mb-4">
                 <img
                   src={card.imageSrc}
@@ -53,7 +53,7 @@ const Occasion = () => {
         ))}
       </div>
       <div className="text-center">
-        <button className="text-sm border border-gray-900 py-1 px-5 text-gray-500 hover:text-gray-700 hover:bg-gray-800 hover:text-white rounded ">
+        <button className="text-sm border border-gray-900 py-1 px-5 text-gray-900 hover:text-gray-700 hover:bg-gray-800 hover:text-white rounded">
           View All
         </button>
       </div>

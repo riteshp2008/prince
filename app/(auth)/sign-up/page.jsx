@@ -16,7 +16,18 @@ export default function SignupFormDemo() {
   };
   return (
     <>
-      <Header navItems={mainNav} isSearch={false} />
+      <Header
+        navItems={
+          ({ mainNav },
+          [
+            { href: "/", icon: <FaHome /> },
+            { href: "/search", icon: <CiSearch /> },
+            { href: "/cart", icon: <FaShoppingCart /> },
+            { href: "/account", icon: <FaUser /> },
+          ])
+        }
+        isSearch={false}
+      />
       <div className="max-w-md w-full m-auto mt-20 rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white">
         <img
           src="Bajaj-Logo.png"
