@@ -30,7 +30,7 @@ const useActiveTab = (isMounted) => {
     if (isMounted) {
       if (pathname === "/") setActiveTab("home");
       else if (pathname === "/search") setActiveTab("search");
-      else if (pathname === "/products") setActiveTab("product");
+      else if (pathname === "/products") setActiveTab("products");
       else if (pathname === "/cart") setActiveTab("cart");
       else if (pathname === "/account") setActiveTab("user");
     }
@@ -224,7 +224,7 @@ const Header = ({ navItems, isSearch }) => {
             icon={BsBox}
             label="Product"
             isActive={activeTab === "product"}
-            onClick={() => handleTabClick("product")}
+            onClick={() => handleTabClick("products")}
           />
           <MobileNavButton
             icon={FaShoppingCart}
@@ -236,7 +236,7 @@ const Header = ({ navItems, isSearch }) => {
             icon={FaUser}
             label="User"
             isActive={activeTab === "user"}
-            onClick={() => handleTabClick("user")}
+            onClick={() => handleTabClick("account")}
           />
         </div>
       </div>

@@ -44,7 +44,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="relative w-full mt-20 overflow-hidden">
+    <div className="relative w-full mt-12 md:mt-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <motion.div
           className="w-full h-full"
