@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 import Header from "@/_components/header";
 import { mainNav } from "@/config/nav";
 import Image from "next/image";
+import { FaHome, FaShoppingCart, FaUser } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
 
 export default function SignupFormDemo() {
   const handleSubmit = (e) => {
