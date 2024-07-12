@@ -61,7 +61,7 @@ const SearchBar = ({
       <input
         type="text"
         placeholder="Search products..."
-        className="w-full border-2 border-gray-300 focus:border-blue-500 text-black bg-gray-100 rounded-full py-2 pl-6 pr-12 transition-all duration-100 focus:outline-none"
+        className="w-96 border-2 border-gray-300 focus:border-blue-500 text-black bg-gray-100 rounded-full py-2 pl-6 pr-12 transition-all duration-100 focus:outline-none"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         onKeyPress={handleKeyPress}
