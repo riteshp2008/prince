@@ -31,7 +31,7 @@ const CategoryDropdown = ({ category, subCategories }) => {
     <div className="relative group" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="text-sm bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+        className="text-sm bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
       >
         {category}
       </button>
@@ -81,7 +81,7 @@ const SubHeader = () => {
   ];
 
   return (
-    <div className="hidden md:flex justify-center items-center space-x-4 bg-gray-100 py-3 px-4">
+    <div className="hidden md:flex justify-center items-center space-x-4 bg-gray-100 py-2 px-4">
       {categories.map((category) => (
         <CategoryDropdown
           key={category.name}
