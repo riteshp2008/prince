@@ -35,16 +35,19 @@ const dummyData = [
 const Banner = () => {
   const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % dummyData.length);
+      if (!isHovered) {
+        setCurrentSlide((prev) => (prev + 1) % dummyData.length);
+      }
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovered]);
 
   return (
-    <div className="relative w-full mt-12 md:mt-20 overflow-hidden">
+    <div className="relative w-full mt-10 md:mt-24 overflow-hidden ">
       <div className="absolute inset-0 z-0">
         <motion.div
           className="w-full h-full"
@@ -76,6 +79,8 @@ const Banner = () => {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
                   className="absolute w-full h-full flex items-center"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
                 >
                   <div className="w-1/2 pl-8 md:pl-16 z-10">
                     <motion.h2

@@ -5,6 +5,7 @@ import { FaHome, FaShoppingCart, FaUser } from "react-icons/fa";
 import { BsBox } from "react-icons/bs";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import SubHeader from "./SubHeader";
 
 // Custom hook for scroll effect
 const useScrollEffect = () => {
@@ -52,7 +53,7 @@ const SearchBar = ({
       <input
         type="text"
         placeholder="Search products..."
-        className="border-2 border-gray-300 focus:border-blue-500 text-black bg-gray-100 rounded-full py-2 pl-4 pr-12 w-64 transition-all duration-300 focus:w-80 focus:outline-none"
+        className="border-2 border-gray-300 focus:border-blue-500 text-black bg-gray-100 rounded-full md:py-1 lg:py-2 pl-6 pr-12 md:w-80 lg:w-96 focus:w-96 focus:outline-none"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         onKeyPress={handleKeyPress}
@@ -68,12 +69,19 @@ const SearchBar = ({
 );
 
 // MobileNavButton component
-const MobileNavButton = ({ icon: Icon, label, isActive, onClick }) => (
+const MobileNavButton = ({
+  icon: Icon,
+  label,
+  isActive,
+  onClick,
+  onSearch,
+}) => (
   <button onClick={onClick} className="focus:outline-none">
     <div className="flex flex-col items-center">
       <Icon
         size={24}
         className={isActive ? "text-blue-500" : "text-gray-600"}
+        onClick={onSearch}
       />
       <span
         className={`text-xs mt-1 ${
@@ -84,57 +92,6 @@ const MobileNavButton = ({ icon: Icon, label, isActive, onClick }) => (
       </span>
     </div>
   </button>
-);
-
-// SubHeader component for laptop view
-const SubHeader = () => (
-  <div className="hidden md:flex justify-center space-x-6 bg-gray-100 py-2">
-    <Link
-      href="/viral-gadgets"
-      className="text-sm text-gray-600 hover:text-blue-500"
-    >
-      Viral Gadgets
-    </Link>
-    <Link href="/kids" className="text-sm text-gray-600 hover:text-blue-500">
-      Kids
-    </Link>
-    <Link href="/women" className="text-sm text-gray-600 hover:text-blue-500">
-      Women
-    </Link>
-    <Link href="/men" className="text-sm text-gray-600 hover:text-blue-500">
-      Men
-    </Link>
-    <Link
-      href="/corporate-gifting"
-      className="text-sm text-gray-600 hover:text-blue-500"
-    >
-      Corporate Gifting
-    </Link>
-    <Link
-      href="/birthday-gifts"
-      className="text-sm text-gray-600 hover:text-blue-500"
-    >
-      Birthday Gifts
-    </Link>
-    <Link
-      href="/anniversary-gifts"
-      className="text-sm text-gray-600 hover:text-blue-500"
-    >
-      Anniversary Gifts
-    </Link>
-    <Link
-      href="/home-decor"
-      className="text-sm text-gray-600 hover:text-blue-500"
-    >
-      Home Decor
-    </Link>
-    <Link
-      href="/category"
-      className="text-sm text-gray-600 hover:text-blue-500"
-    >
-      Category
-    </Link>
-  </div>
 );
 
 // Main Header component
@@ -175,13 +132,18 @@ const Header = ({ navItems, isSearch }) => {
   return (
     <div className="font-sans">
       <div
-        className={`bg-white text-gray-800 shadow-lg fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? "bg-opacity-80 backdrop-blur-sm" : "bg-opacity-100"
-        }`}
+        className={`bg-white text-gray-800 shadow-lg fixed top-0 w-full z-50 transition-all duration-300 `}
       >
-        <div className="container mx-auto flex justify-between items-center py-3 px-6">
+        <div
+          className="container mx-auto flex justify-center
+        md:justify-between items-center py-1 px-2"
+        >
           <Link href="/" className="flex items-center space-x-2">
-            <img src="/Bajaj-Logo.png" alt="logo" className="h-10 w-auto" />
+            <img
+              src="/Bajaj-Logo.png"
+              alt="logo"
+              className="h-8 w-12 md:h-10 md:w-16"
+            />
           </Link>
           {isSearch && (
             <SearchBar
@@ -192,7 +154,7 @@ const Header = ({ navItems, isSearch }) => {
               isMobile={false}
             />
           )}
-          <div className="flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item, index) => (
               <Link key={index} href={item.href}>
                 <p className="text-gray-600 hover:text-blue-500 transition-colors duration-300">
@@ -219,11 +181,12 @@ const Header = ({ navItems, isSearch }) => {
             label="Search"
             isActive={activeTab === "search"}
             onClick={() => handleTabClick("search")}
+            onSearch={handleSearch}
           />
           <MobileNavButton
             icon={BsBox}
             label="Product"
-            isActive={activeTab === "product"}
+            isActive={activeTab === "products"}
             onClick={() => handleTabClick("products")}
           />
           <MobileNavButton
