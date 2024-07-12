@@ -81,7 +81,7 @@ const SubHeader = () => {
   ];
 
   return (
-    <div className="hidden md:flex justify-center items-center space-x-4 bg-gray-100 py-2 px-4">
+    <div className="hidden md:flex justify-center items-center space-x-4 bg-blue-500 py-2 px-4">
       {categories.map((category) => (
         <CategoryDropdown
           key={category.name}
