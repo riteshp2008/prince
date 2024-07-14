@@ -134,12 +134,12 @@ const Page = ({ title, products }) => {
 
   return (
     <div className="min-h-screen" data-aos="fade-up">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-8 pb-2">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="text-center mb-16"
+          className="text-center mb-4"
         >
           <motion.h1
             variants={itemVariants}
@@ -150,7 +150,7 @@ const Page = ({ title, products }) => {
           {title === "All Products" && (
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap justify-center gap-2 mb-12"
+              className="flex flex-wrap justify-center gap-2 mb-6"
             >
               <CategoryButton category="all" label="All Products" />
               <CategoryButton category="trendy" label="Trendy" />
