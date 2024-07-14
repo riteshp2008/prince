@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { FaBars, FaChevronDown } from "react-icons/fa";
 
 const CategoryDropdown = ({ category, subCategories }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,29 +21,39 @@ const CategoryDropdown = ({ category, subCategories }) => {
     };
   }, []);
 
+  const handleCategoryClick = () => {
+    if (subCategories.length === 0) {
+      router.push(`/${category.toLowerCase().replace(" ", "-")}`);
+    } else {
+      setIsOpen(!isOpen);
+    }
+  };
+
   const handleSubCategoryClick = (subCategory) => {
-    const href = `/${category.toLowerCase().replace(" ", "-")}/${subCategory
-      .toLowerCase()
-      .replace(" ", "-")}`;
-    router.push(href);
+    router.push(
+      `/${category.toLowerCase().replace(" ", "-")}/${subCategory
+        .toLowerCase()
+        .replace(" ", "-")}`
+    );
     setIsOpen(false);
   };
 
   return (
     <div className="relative group" ref={dropdownRef}>
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="text-sm bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+        onClick={handleCategoryClick}
+        className="text-white hover:text-gray-200 transition-colors duration-300 focus:outline-none flex items-center"
       >
         {category}
+        {subCategories.length > 0 && <FaChevronDown className="ml-1 text-xs" />}
       </button>
-      {isOpen && (
-        <div className="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+      {isOpen && subCategories.length > 0 && (
+        <div className="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg z-50 overflow-hidden">
           {subCategories.map((subCategory, index) => (
             <button
               key={index}
               onClick={() => handleSubCategoryClick(subCategory)}
-              className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+              className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors duration-200"
             >
               {subCategory}
             </button>
@@ -55,41 +67,60 @@ const CategoryDropdown = ({ category, subCategories }) => {
 const SubHeader = () => {
   const categories = [
     {
-      name: "New Arrivals",
-      subCategories: ["This Week", "This Month", "Last 30 Days"],
+      name: "ALL CATEGORIES",
+      subCategories: ["Category 1", "Category 2", "Category 3"],
     },
     {
-      name: "Best Sellers",
-      subCategories: ["Electronics", "Fashion", "Home & Kitchen"],
+      name: "Home Appliance",
+      subCategories: ["Appliance 1", "Appliance 2", "Appliance 3"],
     },
     {
-      name: "Deals",
-      subCategories: ["Daily Deals", "Clearance", "Bundle Offers"],
+      name: "Audio & Speakers",
+      subCategories: ["Audio 1", "Audio 2", "Speakers"],
     },
     {
-      name: "Clearance",
-      subCategories: ["Up to 50% Off", "Last Chance", "Overstock"],
+      name: "Solar Product",
+      subCategories: ["Solar Panel", "Solar Inverter", "Solar Battery"],
     },
     {
-      name: "Category",
-      subCategories: ["Electronics", "Fashion", "Home", "Beauty", "Sports"],
+      name: "Fancy Light",
+      subCategories: ["RGB light's", "Bulb", "Tubelight"],
     },
     {
-      name: "Track Order",
-      subCategories: ["By Order ID", "By Email", "By Phone Number"],
+      name: "Fashion",
+      subCategories: ["Men", "Women", "Kids"],
+    },
+    {
+      name: "GIFTS",
+      subCategories: [],
+    },
+    {
+      name: "Order Track",
+      subCategories: ["By Number", "By Order-ID"],
     },
   ];
 
   return (
-    <div className="hidden md:flex justify-center items-center space-x-4 bg-blue-500 py-2 px-4">
-      {categories.map((category) => (
-        <CategoryDropdown
-          key={category.name}
-          category={category.name}
-          subCategories={category.subCategories}
-        />
-      ))}
-    </div>
+    <nav className="bg-gradient-to-r from-blue-500 to-blue-600 py-3 px-6 shadow-lg">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="flex items-center bg-gradient-to-r from-red-500 to-red-600 py-1 px-4 rounded-md shadow-md hover:from-red-600 hover:to-red-700 transition-all duration-300">
+          <FaBars className="text-white mr-2" />
+          <CategoryDropdown
+            category={categories[0].name}
+            subCategories={categories[0].subCategories}
+          />
+        </div>
+        <div className="flex space-x-8">
+          {categories.slice(1).map((category) => (
+            <CategoryDropdown
+              key={category.name}
+              category={category.name}
+              subCategories={category.subCategories}
+            />
+          ))}
+        </div>
+      </div>
+    </nav>
   );
 };
 
