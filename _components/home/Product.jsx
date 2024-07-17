@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 const Page = ({ title, products }) => {
-  const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeCategory, setActiveCategory] = useState("all");
   const scrollRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
@@ -108,7 +107,7 @@ const Page = ({ title, products }) => {
           <img
             src={product.imageSrc}
             alt={product.imageAlt}
-            className="h-36 sm:h-48 w-full object-cover object-center cursor-pointer"
+            className="h-36 sm:h-auto w-full object-cover object-center cursor-pointer"
             onClick={() => handleProductClick(product.id)}
           />
         </motion.div>
@@ -146,7 +145,7 @@ const Page = ({ title, products }) => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50" data-aos="fade-up">
+    <div className="min-h-fit my-10 bg-gray-50" data-aos="fade-up">
       <div className="mx-auto max-w-7xl px-4 py-1 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"

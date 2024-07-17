@@ -150,12 +150,12 @@ const Header = ({ navItems, isSearch }) => {
       <div
         className={`bg-white text-gray-800 shadow-lg fixed top-0 w-full z-50 transition-all duration-300`}
       >
-        <div className="container mx-auto flex justify-center md:justify-between items-center py-1 px-2">
+        <div className="container mx-auto flex justify-center md:justify-between items-center py-2 px-2">
           <Link href="/" className="flex items-center space-x-2">
             <img
               src="/Bajaj-Logo.png"
               alt="logo"
-              className="h-8 w-12 md:h-10 md:w-16"
+              className="h-10 w-14 md:h-10 md:w-16"
             />
           </Link>
           {isSearch && (

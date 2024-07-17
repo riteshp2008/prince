@@ -17,7 +17,7 @@ const Occasion = () => {
           Find the perfect gift for any occasion
         </p>
       </div>
-      <div className="flex flex-wrap justify-center lg:gap-4 max-h-full">
+      <div className="flex flex-wrap justify-center sm:gap-6 h-fit">
         {occasion.map((card, index) => (
           <CardContainer
             key={index}
@@ -33,12 +33,14 @@ const Occasion = () => {
                   alt={`thumbnail for ${card.text}`}
                 />
               </CardItem>
-              <CardItem
-                translateZ="50"
-                className="text-xl font-normal text-neutral-600 dark:text-black mb-4"
-              >
-                {card.text}
-              </CardItem>
+              <div className="flex justify-center items-center">
+                <CardItem
+                  translateZ="50"
+                  className="text-xl font-normal text-neutral-600 dark:text-black mb-3"
+                >
+                  {card.text}
+                </CardItem>
+              </div>
               <div className="flex justify-center items-center">
                 <CardItem
                   translateZ={20}
@@ -53,14 +55,14 @@ const Occasion = () => {
           </CardContainer>
         ))}
       </div>
-      <div className="text-center">
+      {/* <div className="pb-8 text-center">
         <Button
           variant="outline"
-          className="text-sm hover:bg-blue-300 transition-colors duration-300"
+          className="text-sm h-8 hover:bg-blue-300 transition-colors duration-300"
         >
           View All
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };
