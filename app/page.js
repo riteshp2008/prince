@@ -19,11 +19,11 @@ export default function Home() {
       <Header navItems={mainNav} isSearch={true} />
       <Banner />
       <Category />
-      <DealOfTheDay />
       <Occasion />
       <Product title={"Kids Special"} products={kidsProducts} />
       <Product title={"Trending Now"} products={trendingProducts} />
       <Product title={"All Products"} products={products} />
+      <DealOfTheDay />
       <Banner2 />
       <Brands />
     </div>

@@ -4,6 +4,7 @@ import React from "react";
 import { CardBody, CardContainer, CardItem } from "../../components/ui/3d-card";
 import Link from "next/link";
 import { occasion } from "@/config/dummyData";
+import { Button } from "@/components/ui/button";
 
 const Occasion = () => {
   return (
@@ -53,9 +54,12 @@ const Occasion = () => {
         ))}
       </div>
       <div className="text-center">
-        <button className="text-sm border border-gray-900 py-1 px-5 text-gray-900 hover:text-gray-700 hover:bg-gray-800 hover:text-white rounded">
+        <Button
+          variant="outline"
+          className="text-sm hover:bg-blue-300 transition-colors duration-300"
+        >
           View All
-        </button>
+        </Button>
       </div>
     </div>
   );

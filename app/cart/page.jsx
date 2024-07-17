@@ -158,7 +158,7 @@ const OrderSummary = ({ cartItems }) => {
             window.location.href = "/checkout";
           }}
           type="button"
-          className="mt-8 px-6 py-3 w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors font-semibold text-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+          className=" mt-8 px-6 py-3 w-full bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors font-semibold text-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
         >
           Proceed to Checkout
         </button>
