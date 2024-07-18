@@ -1,11 +1,13 @@
 import { db } from "@/lib/db";
-import { NextResponse } from "next/server";
 
-export async function GET(req, res) {
+export default async function handler(req, res) {
   try {
-    const category = req.nextUrl.searchParams.get("category");
+    const { searchParams } = new URL(req.url);
+    const category = searchParams.get("category");
+
+    let products;
     if (category) {
-      const products = await db.product.findMany({
+      products = await db.product.findMany({
         where: {
           categoryId: category,
         },
@@ -13,29 +15,17 @@ export async function GET(req, res) {
           category: true,
         },
       });
-
-      return new Response(JSON.stringify(products), {
-        headers: {
-          "Content-Type": "application/json",
+    } else {
+      products = await db.product.findMany({
+        include: {
+          category: true,
         },
       });
     }
 
-    const products = await db.product.findMany({
-      include: {
-        category: true,
-      },
-    });
-
-    return new Response(JSON.stringify(products), {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    res.status(200).json(products);
   } catch (error) {
-    console.error(error);
-    return new Response("Internal server error", {
-      status: 500,
-    });
+    console.error("Error fetching products:", error);
+    res.status(500).json({ message: "Internal server error" });
   }
 }
