@@ -1,15 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["jsx", "js", "ts", "tsx", "mdx"],
+  reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    suppressHydrationWarning: true,
-  },
+
   swcMinify: true,
 };
 
