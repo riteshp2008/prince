@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const dummyData = [
   {
@@ -47,7 +48,7 @@ const Banner = () => {
   }, [isHovered]);
 
   return (
-    <div className="relative w-full mt-10 md:mt-20 overflow-hidden ">
+    <div className="relative w-full mt-10 md:mt-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <motion.div
           className="w-full h-full"
@@ -82,12 +83,12 @@ const Banner = () => {
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
-                  <div className="w-1/2 pl-8 md:pl-16 z-10">
+                  <div className="w-full md:w-1/2 px-4 md:pl-16 z-10">
                     <motion.h2
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.4, duration: 0.5 }}
-                      className="text-5xl md:text-7xl font-bold mb-6 text-navy-900 leading-tight"
+                      className="text-3xl md:text-5xl lg:text-7xl font-bold mb-6 text-navy-900 leading-tight"
                     >
                       {slide.text.split(" ").map((word, i) =>
                         slide.highlight.includes(word) ? (
@@ -107,22 +108,28 @@ const Banner = () => {
                       <Button
                         onClick={() => router.push(slide.link)}
                         variant="outline"
-                        className="bg-white text-black border-2 border-black hover:bg-gray-300 hover:border-purple-700 transition duration-300 px-8 py-3 text-lg shadow-lg"
+                        className="bg-white text-black border-2 border-black hover:bg-gray-300 hover:border-purple-700 transition duration-300 px-6 py-2 md:px-8 md:py-3 text-base md:text-lg shadow-lg"
                       >
                         Shop Now
-                        <ArrowRight className="h-6 w-6 ml-2 inline-block" />
+                        <ArrowRight className="h-5 w-5 md:h-6 md:w-6 ml-2 inline-block" />
                       </Button>
                     </motion.div>
                   </div>
-                  <div className="absolute right-0 top-0 bottom-0 w-1/2">
-                    <motion.img
+                  <div className="hidden md:block absolute right-0 top-5 bottom-0 w-1/2">
+                    <motion.div
                       initial={{ x: 100, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.5, duration: 0.8 }}
-                      src={slide.image}
-                      alt="Banner Image"
-                      className="hidden md:block absolute right-24 top-6 h-full object-cover"
-                    />
+                      className="relative h-full"
+                    >
+                      <img
+                        src={slide.image}
+                        alt="Banner Image"
+                        layout="fill"
+                        objectFit="cover"
+                        className="pr-12"
+                      />
+                    </motion.div>
                   </div>
                 </motion.div>
               )
