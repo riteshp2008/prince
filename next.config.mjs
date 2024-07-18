@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["page.jsx", "page.js"],
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx", "mjs"],
   typescript: {
     ignoreBuildErrors: true,
   },
