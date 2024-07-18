@@ -1,13 +1,10 @@
 import { db } from "@/lib/db";
 
-export default async function handler(req, res) {
+export async function GET(req, res) {
   try {
-    const { searchParams } = new URL(req.url);
-    const category = searchParams.get("category");
-
-    let products;
+    const category = req.nextUrl.searchParams.get("category");
     if (category) {
-      products = await db.product.findMany({
+      const products = await db.product.findMany({
         where: {
           categoryId: category,
         },
@@ -15,17 +12,29 @@ export default async function handler(req, res) {
           category: true,
         },
       });
-    } else {
-      products = await db.product.findMany({
-        include: {
-          category: true,
+
+      return new Response(JSON.stringify(products), {
+        headers: {
+          "Content-Type": "application/json",
         },
       });
     }
 
-    res.status(200).json(products);
+    const products = await db.product.findMany({
+      include: {
+        category: true,
+      },
+    });
+
+    return new Response(JSON.stringify(products), {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   } catch (error) {
-    console.error("Error fetching products:", error);
-    res.status(500).json({ message: "Internal server error" });
+    console.error(error);
+    return new Response("Internal server error", {
+      status: 500,
+    });
   }
 }

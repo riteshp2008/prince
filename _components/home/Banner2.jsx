@@ -19,7 +19,7 @@ const Banner2 = () => {
           <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in-up animation-delay-300">
             Discover amazing deals on our latest collection.
           </p>
-          <Button className="inline-block rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-4 text-base sm:text-lg font-semibold text-white transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:scale-105 hover:shadow-lg animate-fade-in-up animation-delay-600">
+          <Button className="inline-block rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-6  text-base sm:text-lg font-semibold text-white transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:scale-105 hover:shadow-lg animate-fade-in-up animation-delay-600">
             Shop Now
           </Button>
         </div>
