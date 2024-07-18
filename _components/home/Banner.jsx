@@ -115,7 +115,7 @@ const Banner = () => {
                       </Button>
                     </motion.div>
                   </div>
-                  <div className="hidden md:block absolute right-0 top-5 bottom-0 w-1/2">
+                  <div className="hidden md:block absolute right-0 top-5 bottom-0">
                     <motion.div
                       initial={{ x: 100, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
@@ -127,7 +127,7 @@ const Banner = () => {
                         alt="Banner Image"
                         layout="fill"
                         objectFit="cover"
-                        className="pr-12"
+                        className="pr-24"
                       />
                     </motion.div>
                   </div>
